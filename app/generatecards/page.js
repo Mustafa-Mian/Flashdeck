@@ -33,7 +33,7 @@ export default function Generate() {
 
   const handleSubmit = async () => {
     if (!text.trim()) {
-      alert('Please enter some text to generate flashcards.')
+      alert('Please enter some text to generate yout flashcards.')
       return
     }
 
@@ -57,7 +57,7 @@ export default function Generate() {
       setFlashcards(data.flashcards)
     } catch (error) {
       console.error('Error generating flashcards:', error)
-      alert('An error occurred while generating flashcards. Please try again.')
+      alert('An error occurred while generating flashcards. The Gemini API may be having some issues. Please try again.')
     } finally {
       setLoading(false); // Hide the loading bar after the request completes
       console.log(flashcards)
@@ -194,13 +194,6 @@ export default function Generate() {
         </Box>
       )}
       {flashcards.length > 0 && (
-        <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
-          <Button variant="outlined" color="primary" onClick={handleOpenDialog}>
-            Save Cardset
-          </Button>
-        </Box>
-      )}
-      {flashcards.length > 0 && (
         <Box
           sx={{
             mt: 8,
@@ -219,6 +212,22 @@ export default function Generate() {
           <Typography variant="h5" component="h2" color="white" gutterBottom>
             Your Flashcards:
           </Typography>
+          <Box sx={{ my: 2, display: 'flex', justifyContent: 'center' }}>
+          <Button 
+            variant="outlined"
+            color="primary"
+            onClick={handleOpenDialog}
+            sx={{
+              backgroundColor: '#B2FF59',
+              color: '#121212',
+              '&:hover': {
+                backgroundColor: '#94DD26',
+              },
+            }}
+          >
+            Save Cardset
+          </Button>
+        </Box>
           <Grid container spacing={4} justifyContent="center">
             {flashcards.map((flashcard, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>

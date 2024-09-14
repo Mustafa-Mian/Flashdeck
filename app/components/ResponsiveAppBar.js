@@ -8,7 +8,6 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const pages = [
   { name: 'Home', path: '/' },
-  { name: 'Cards', path: '/generatecards' },
 ];
 
 function ResponsiveAppBar() {
@@ -98,6 +97,8 @@ function ResponsiveAppBar() {
               <Button variant='contained' color='' sx={{ my: 2, ml: 2, color: 'white', display: 'block' }} href="/sign-up">Sign Up</Button>
             </SignedOut>
             <SignedIn>
+            <Button variant='contained' color='' sx={{ my: 2, ml: 2, color: 'white', display: 'block' }} href="/generatecards">Create</Button>
+            <Button variant='contained' color='' sx={{ my: 2, ml: 2, color: 'white', display: 'block' }} href="/cardsets">Cardsets</Button>
               <UserButton sx={{ my: 2, ml: 2, color: 'white', display: 'block' }}/>
             </SignedIn>
           </Box>
